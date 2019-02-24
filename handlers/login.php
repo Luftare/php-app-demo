@@ -8,7 +8,7 @@ $valid_credentials = validCredentials($post_name, $post_password);
 
 if($valid_credentials) {
   $_SESSION['name'] = $post_name;
-  header("location:/index.php");
+  header("location:/");
 } else {
   echo '
     <h4>Wrong username or password</h4>
