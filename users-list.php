@@ -1,8 +1,9 @@
 <?php
-include 'session.php';
-include 'require-session.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/exports/session.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/exports/require-session.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/exports/db.php';
+
 include 'header.php';
-include 'db.php';
 
 $sql = "SELECT name, password FROM User";
 $result = $db_conn->query($sql);

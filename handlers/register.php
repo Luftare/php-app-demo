@@ -1,6 +1,6 @@
 <?php
-include '../session.php';
-include '../db.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/exports/session.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/exports/db.php';
 
 $post_name = mysqli_real_escape_string($db_conn, $_POST["name"]);
 $post_password = mysqli_real_escape_string($db_conn, $_POST["password"]);

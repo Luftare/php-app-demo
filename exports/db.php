@@ -1,6 +1,6 @@
 
 <?php
-include 'env.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/env.php';
 
 $db_host = 'localhost';
 $db_port = '3306';
@@ -14,8 +14,9 @@ if (mysqli_connect_errno()) {
   exit();
 }
 
-if($db_conn->connect_error)
-    die('connection error: '.$db_conn->connect_error);
+if($db_conn->connect_error) {
+  die('connection error: '.$db_conn->connect_error);
+}
 
 function validCredentials($username, $password) {
   $sql = "SELECT name, password FROM User WHERE '$username'=name";

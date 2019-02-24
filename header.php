@@ -2,8 +2,8 @@
   <a href="/" class="top-nav__logo">
     <h1>A cool app</h1>
   </a>
-  <?php echo $user_logged_in ? '<a href="/users-list.php">users</a>' : ''; ?>
-  <?php echo $user_logged_in ? '<a href="/logout.php">logout</a>' : ''; ?>
+  <?php echo $user_logged_in ? '<a href="/users-list">users</a>' : ''; ?>
+  <?php echo $user_logged_in ? '<a href="handlers/logout">logout</a>' : ''; ?>
 
   <?php echo $user_logged_in ? "<span> Logged in as: $logged_user_name</span>" : ""; ?>
 </div>
