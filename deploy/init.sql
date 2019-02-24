@@ -14,7 +14,7 @@ IF NOT EXISTS User
   id int NOT NULL
   AUTO_INCREMENT,
     name varchar
-(30) NOT NULL,
+(30) NOT NULL UNIQUE,
     password varchar
 (30),
     PRIMARY KEY
