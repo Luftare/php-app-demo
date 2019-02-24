@@ -4,5 +4,5 @@ include 'require-session.php';
 include 'utils.php';
 include 'header.php';
 
-echo "<h4>Hello, '$logged_user_name'";
+echo "<h4>Hello, $logged_user_name";
 ?>

@@ -9,9 +9,10 @@ $sql = "INSERT INTO User(name, password) VALUES('".$post_name."', '".$post_passw
 $result = $db_conn->query($sql);
 
 if($result > 0) {
-    $_SESSION['name'] = $post_name;
-    header("location:/");
+  $_SESSION['name'] = $post_name;
+  header("location:/");
 } else {
-    echo 'Cannot register...';
+  echo "<h4>Username: '$post_name' already taken!</h4>";
+  echo '<a href="/login">Back</a>';
 }
 ?>

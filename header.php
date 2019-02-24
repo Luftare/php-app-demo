@@ -5,7 +5,7 @@
   <?php echo $user_logged_in ? '<a href="/users-list.php">users</a>' : ''; ?>
   <?php echo $user_logged_in ? '<a href="/logout.php">logout</a>' : ''; ?>
 
-  <?php echo $user_logged_in ? "<span> Logged in as: '$logged_user_name'</span>" : ""; ?>
+  <?php echo $user_logged_in ? "<span> Logged in as: $logged_user_name</span>" : ""; ?>
 </div>
 <style>
 .top-nav {
