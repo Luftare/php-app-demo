@@ -1,14 +1,22 @@
-CREATE DATABASE App;
+-- sudo mysql -p < init.sql
+
+USE App;
+DROP TABLE IF EXISTS User;
+DROP DATABASE IF EXISTS App;
+
+CREATE DATABASE
+IF NOT EXISTS App;
 USE App;
 
-CREATE TABLE User
+CREATE TABLE
+IF NOT EXISTS User
 (
   id int NOT NULL
   AUTO_INCREMENT,
     name varchar
-  (30) NOT NULL,
+(30) NOT NULL,
     password varchar
-  (30),
+(30),
     PRIMARY KEY
-  (id)
+(id)
 );
