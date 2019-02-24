@@ -2,10 +2,10 @@
 include '../session.php';
 include '../db.php';
 
-$post_name = $_POST["name"];
-$post_password = $_POST["password"];
-$sql = "INSERT INTO User(name, password) VALUES('".$post_name."', '".$post_password."')";
-
+$post_name = mysqli_real_escape_string($db_conn, $_POST["name"]);
+$post_password = mysqli_real_escape_string($db_conn, $_POST["password"]);
+$hashed_password = password_hash($post_password, PASSWORD_DEFAULT);
+$sql = "INSERT INTO User(name, password) VALUES('".$post_name."', '".$hashed_password."')";
 $result = $db_conn->query($sql);
 
 if($result > 0) {

@@ -18,8 +18,10 @@ if($db_conn->connect_error)
     die('connection error: '.$db_conn->connect_error);
 
 function validCredentials($username, $password) {
-  $sql = "SELECT name, password FROM User WHERE '$username'=name AND password = '$password'";
+  $sql = "SELECT name, password FROM User WHERE '$username'=name";
   $result = $GLOBALS["db_conn"]->query($sql);
-  return mysqli_num_rows($result) === 1;
+  $user = $result->fetch_assoc();
+  $hashed_password = $user["password"];
+  return password_verify($password, $hashed_password);
 }
 ?>

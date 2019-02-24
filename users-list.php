@@ -1,14 +1,14 @@
-<?php include 'session.php'; ?>
-<?php include 'require-session.php'; ?>
-<?php include 'header.php'; ?>
-<?php include 'db.php'; ?>
 <?php
+include 'session.php';
+include 'require-session.php';
+include 'header.php';
+include 'db.php';
 
 $sql = "SELECT name, password FROM User";
 $result = $db_conn->query($sql);
 
 while($row = $result->fetch_assoc()) {
-  echo "name: " . $row["name"]. "<br>";
+  echo $row["name"]." : ".$row["password"]."<br>";
 }
 
 $db_conn->close();

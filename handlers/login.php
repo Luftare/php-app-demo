@@ -2,8 +2,8 @@
 include '../session.php';
 include '../db.php';
 
-$post_name = $_POST['name'];
-$post_password = $_POST['password'];
+$post_name = mysqli_real_escape_string($db_conn, $_POST['name']);
+$post_password = mysqli_real_escape_string($db_conn, $_POST['password']);
 $valid_credentials = validCredentials($post_name, $post_password);
 
 if($valid_credentials) {
