@@ -1,6 +1,7 @@
-<?php include '../session.php'; ?>
-<?php include '../db.php'; ?>
 <?php
+include '../session.php';
+include '../db.php';
+
 $post_name = $_POST['name'];
 $post_password = $_POST['password'];
 $valid_credentials = validCredentials($post_name, $post_password);
