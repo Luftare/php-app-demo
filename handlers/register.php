@@ -10,7 +10,7 @@ $result = $db_conn->query($sql);
 
 if($result > 0) {
     $_SESSION['name'] = $post_name;
-    header("location:/");
+    header("location:/index.php");
 } else {
     echo 'Cannot register...';
 }
