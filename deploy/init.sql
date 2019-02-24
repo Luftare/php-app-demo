@@ -1,4 +1,5 @@
--- sudo mysql -p < init.sql
+-- to run this file:
+-- sudo mysql -p < path/to/this-file.sql
 
 -- clear existing data
 USE App;
