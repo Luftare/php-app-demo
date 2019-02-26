@@ -11,10 +11,3 @@
 <input name="password" placeholder="password" type="password" required/>
 <input type="submit" />
 </form>
-
-<h4>Upload image!</h4>
-<form action="handlers/upload-image" method="post" enctype="multipart/form-data">
-  Select image to upload:
-  <input type="file" name="fileToUpload" id="fileToUpload">
-  <input type="submit" value="Upload Image" name="submit">
-</form>

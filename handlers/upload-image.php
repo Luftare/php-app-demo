@@ -1,4 +1,7 @@
 <?php
+include $_SERVER['DOCUMENT_ROOT'] . '/exports/session.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/exports/require-session.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/exports/db.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/functions/resize.php';
 
 $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/uploads/";
@@ -18,14 +21,8 @@ if(isset($_POST["submit"])) {
   }
 }
 
-// Check if file already exists
-if (file_exists($target_file)) {
-  echo "Sorry, file already exists.";
-  $uploadOk = 0;
-}
-
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 5000000) {
+if ($_FILES["fileToUpload"]["size"] > 10000000) {
   echo "Sorry, your file is too large.";
   $uploadOk = 0;
 }
@@ -43,11 +40,15 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-      $imgData = resizeImage( $target_file, 400, 100);
-      $resizedFilename = $_SERVER['DOCUMENT_ROOT'] . "/uploads/". rand(0, 9999999999999).".png";
+      $imgData = resizeImage( $target_file, 600, 600);
+      $fileName = rand(0, 9999999999999) . ".png";
+      $resizedFilename = $_SERVER['DOCUMENT_ROOT'] . "/uploads/". $fileName;
       imagepng($imgData,  $resizedFilename);
       unlink($target_file);
-      echo "The file ". basename($_FILES["fileToUpload"]["name"]). " has been uploaded.";
+      $insert_image_sql = "INSERT INTO Image(fileName, username) VALUES('".$fileName."', '".$logged_user_name."')";
+      $db_conn->query($insert_image_sql);
+      echo "The file ". basename($_FILES["fileToUpload"]["name"]). " has been uploaded as: " .$fileName;
+      header("location:/");
     } else {
       echo "Sorry, there was an error uploading your file.";
     }

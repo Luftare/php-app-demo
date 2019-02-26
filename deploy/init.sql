@@ -4,6 +4,7 @@
 -- clear existing data
 USE App;
 DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Image;
 DROP DATABASE IF EXISTS App;
 
 -- create new database and tables
@@ -16,4 +17,9 @@ CREATE TABLE IF NOT EXISTS User (
   name varchar(25) NOT NULL UNIQUE,
   password varchar(255),
   PRIMARY KEY(id)
+);
+
+CREATE TABLE IF NOT EXISTS Image (
+  fileName varchar(40) NOT NULL,
+  username varchar(25) NOT NULL
 );
