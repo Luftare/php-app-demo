@@ -21,5 +21,6 @@ CREATE TABLE IF NOT EXISTS User (
 
 CREATE TABLE IF NOT EXISTS Image (
   fileName varchar(40) NOT NULL,
-  username varchar(25) NOT NULL
+  username varchar(25) NOT NULL,
+  description varchar(180)
 );

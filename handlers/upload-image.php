@@ -45,7 +45,8 @@ if ($uploadOk == 0) {
       $resizedFilename = $_SERVER['DOCUMENT_ROOT'] . "/uploads/". $fileName;
       imagepng($imgData,  $resizedFilename);
       unlink($target_file);
-      $insert_image_sql = "INSERT INTO Image(fileName, username) VALUES('".$fileName."', '".$logged_user_name."')";
+      $image_description = mysqli_real_escape_string($db_conn, $_POST['description']);
+      $insert_image_sql = "INSERT INTO Image(fileName, username, description) VALUES('".$fileName."', '".$logged_user_name."', '".$image_description."')";
       $db_conn->query($insert_image_sql);
       echo "The file ". basename($_FILES["fileToUpload"]["name"]). " has been uploaded as: " .$fileName;
       header("location:/");

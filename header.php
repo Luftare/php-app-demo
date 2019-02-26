@@ -8,6 +8,10 @@
   <?php echo $user_logged_in ? "<span> Logged in as: $logged_user_name</span>" : ""; ?>
 </div>
 <style>
+body {
+  background-color: #dfd;
+}
+
 .top-nav {
   background-color: lightgreen;
   padding: 50px 10%;
