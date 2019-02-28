@@ -3,7 +3,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/../exports/session.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/../exports/require-session.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/../exports/db.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/../sections/header.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/../functions/components.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/../components/post-preview.php';
 ?>
 <h4>What's going on?</h4>
 <form action="handlers/create-post" method="post" enctype="multipart/form-data" id="new-image-form">
@@ -27,40 +27,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/../functions/components.php';
   width: 100%;
   margin-bottom: 16px;
 }
-
-.posts-container {
-  display: flex;
-  flex-wrap: wrap;
-  margin: -16px;
-}
-
-.post {
-  display: block;
-  position: relative;
-  background-color: white;
-  margin: 16px;
-  box-shadow: 2px 4px 14px #555;
-  padding: 10px;
-}
-
-.post__image {
-  width: 100%;
-  max-width: 600px;
-}
-
-.post__description {
-
-}
-
-.post form {
-  margin: 0;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  opacity: 0.3;
-}
-
-.post form:hover {
-  opacity: 1;
-}
+<?php  echo renderPostPreviewStyles(); ?>
 </style>
