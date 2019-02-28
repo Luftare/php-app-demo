@@ -4,7 +4,7 @@
 -- clear existing data
 USE App;
 DROP TABLE IF EXISTS User;
-DROP TABLE IF EXISTS Image;
+DROP TABLE IF EXISTS Post;
 DROP DATABASE IF EXISTS App;
 
 -- create new database and tables
@@ -19,8 +19,11 @@ CREATE TABLE IF NOT EXISTS User (
   PRIMARY KEY(id)
 );
 
-CREATE TABLE IF NOT EXISTS Image (
-  fileName varchar(40) NOT NULL,
+CREATE TABLE IF NOT EXISTS Post (
+  id int NOT NULL AUTO_INCREMENT,
+  imageName varchar(40) NOT NULL,
   username varchar(25) NOT NULL,
-  description varchar(180)
+  description varchar(180),
+  ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  primary key (id)
 );

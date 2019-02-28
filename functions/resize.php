@@ -1,15 +1,4 @@
 <?php
-/**
- * Resize image given a height and width and return raw image data.
- *
- * Note : You can add more supported image formats adding more parameters to the switch statement.
- *
- * @param type $file filepath
- * @param type $w width in px
- * @param type $h height in px
- * @param type $crop Crop or not
- * @return type
- */
 function resizeImage($file, $w, $h, $crop=false) {
     list($width, $height) = getimagesize($file);
     $r = $width / $height;
@@ -56,12 +45,4 @@ function resizeImage($file, $w, $h, $crop=false) {
 
     return $dst;
 }
-/*
-$filename = $_SERVER['DOCUMENT_ROOT'] . "/explosion.png";
-$resizedFilename = $_SERVER['DOCUMENT_ROOT'] . "/uploads/0.png";
-
-$imgData = resize_image($filename, 50, 50);
-
-imagepng($imgData, $resizedFilename);
-*/
 ?>

@@ -1,6 +1,6 @@
 
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/env.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/../env.php';
 
 $db_host = 'localhost';
 $db_port = '3306';

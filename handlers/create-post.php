@@ -1,8 +1,8 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/exports/session.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/exports/require-session.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/exports/db.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/functions/resize.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/../exports/session.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/../exports/require-session.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/../exports/db.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/../functions/resize.php';
 
 $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -42,13 +42,12 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
       $imgData = resizeImage( $target_file, 600, 600);
       $fileName = rand(0, 9999999999999) . ".png";
-      $resizedFilename = $_SERVER['DOCUMENT_ROOT'] . "/uploads/". $fileName;
+      $resizedFilename = $_SERVER['DOCUMENT_ROOT'] . '/uploads/'. $fileName;
       imagepng($imgData,  $resizedFilename);
       unlink($target_file);
       $image_description = mysqli_real_escape_string($db_conn, $_POST['description']);
-      $insert_image_sql = "INSERT INTO Image(fileName, username, description) VALUES('".$fileName."', '".$logged_user_name."', '".$image_description."')";
-      $db_conn->query($insert_image_sql);
-      echo "The file ". basename($_FILES["fileToUpload"]["name"]). " has been uploaded as: " .$fileName;
+      $insert_post_sql = "INSERT INTO Post(imageName, username, description) VALUES('".$fileName."', '".$logged_user_name."', '".$image_description."')";
+      $db_conn->query($insert_post_sql);
       header("location:/");
     } else {
       echo "Sorry, there was an error uploading your file.";
